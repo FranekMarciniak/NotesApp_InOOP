@@ -1,0 +1,168 @@
+body {
+    font-family: 'MuseoModerno', cursive;
+    background-color: rgb(1, 103, 255);
+}
+
+#container {
+    display: flex;
+
+}
+
+#heading {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 100%;
+}
+
+#create {
+    width: 30%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+
+}
+
+.manipulate {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+.createButton {
+    background-image: url(./create.png);
+}
+
+.deleteButton {
+    background-image: url(./trash.png);
+}
+
+.note_section {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.controls {
+    margin-top: 20px;
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hidden {
+    width: 60%;
+    text-align: center;
+    font-size: 1.4em;
+    color: white;
+    display: none;
+}
+
+.visible {
+    display: block !important;
+}
+
+.note {
+    width: 260px;
+    height: 300px;
+    background-color: white;
+    border-radius: 1em;
+    margin-left: 2em;
+    margin-top: 2em;
+
+    h2 {
+        margin-left: 0.4em;
+
+        input {
+            font-family: 'MuseoModerno', cursive;
+            border: none;
+            font-size: 24px;
+            font-weight: 500;
+            width: 240px;
+            height: 30px;
+        }
+    }
+
+    p {
+        font-size: 1.1em;
+        padding: 10px;
+        word-wrap: break-word;
+    }
+
+    textarea {
+        font-family: 'MuseoModerno', cursive;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 1.3em;
+        overflow: auto;
+        width: 240px;
+        height: 140px;
+
+    }
+
+    form button {
+        width: 20%;
+        color: #494949;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #ffffff;
+        padding: 5px;
+        border: 2px solid #494949;
+        display: inline-block;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        margin-left: 1.2em;
+    }
+
+    form button:hover {
+        color: #ffffff !important;
+        background: black;
+        border-color: white !important;
+        -webkit-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+    }
+}
+
+
+
+.heartbeat {
+    -webkit-animation: shake 0.9s linear both infinite;
+    animation: shake 0.9s linear both infinite;
+}
+
+
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+
+.deletingContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 2em;
+    padding-top: 2em;
+    align-items: flex-end
+}

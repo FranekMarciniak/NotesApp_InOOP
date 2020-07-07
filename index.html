@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>notebook- idk what will come out</title>
+	<link rel="stylesheet" href="./styles/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<h1 id="heading">This is my notebook project</h1>
+
+	<div id="container">
+		<div id="create">
+			<div class="note">
+				<form>
+					<h2 class="subject">
+						<input type="text" placeholder="This is your heading">
+					</h2>
+					<p>
+						<textarea name="inputedNote" id="textarea" cols="10" rows="10"
+							placeholder="This is your note"></textarea>
+					</p>
+					<button class="submit">Add!</button>
+					<span id="counter">0/140</span>
+				</form>
+			</div>
+			<div class="controls">
+				<button class="manipulate createButton"></button>
+				<button class="manipulate deleteButton"></button>
+
+			</div>
+			<p class="hidden" id="whatToDo">Click note to delete</p>
+
+		</div>
+		<div class="note_section">
+
+		</div>
+	</div>
+	<script src="./ading_note_OOP.js"></script>
+</body>
+
+</html>
