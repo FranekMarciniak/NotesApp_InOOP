@@ -66,9 +66,13 @@ class UI {
 
   static deleteNoteFromUI(e) {
     const itemToRemove = e.currentTarget.id;
-    console.log(itemToRemove);
     Storage.deleteNoteFromStorage(itemToRemove);
     e.currentTarget.remove();
+    const notes = document.querySelectorAll('.deleteNote');
+    notes.forEach(note =>
+      note.removeEventListener('click', UI.deleteNoteFromUI)
+    );
+    notes.forEach(note => note.classList.remove('heartbeat'));
     document.querySelector('#whatToDo').classList.remove('visible');
   }
 
@@ -79,10 +83,18 @@ class UI {
   static addingHandler(e) {
     e.preventDefault();
     const form = document.querySelector('form');
-    const note = new Note(form[0].value, form[1].value, Date.now());
-    UI.addIntoSection(note);
-    UI.resetForm();
-    Storage.addNoteToStorage(note);
+    if (
+      form[0].value === '' ||
+      form[1].value === '' ||
+      form[1].value.length > 140
+    ) {
+    } else {
+      const note = new Note(form[0].value, form[1].value, Date.now());
+      UI.addIntoSection(note);
+      UI.resetForm();
+      Storage.addNoteToStorage(note);
+      document.querySelector('#counter').innerHTML = '0/140';
+    }
   }
 
   static counter() {
