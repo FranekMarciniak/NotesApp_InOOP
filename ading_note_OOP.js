@@ -10,9 +10,11 @@ class Storage {
   // This function gets current notes in local storage
   static currentNotes() {
     let notes;
+    // if local storage is empty initialize notes object with empty array
     if (localStorage.getItem('notes') === null) {
       notes = [];
     } else {
+      // If there is notes object get its value and save it into notes varieble
       notes = JSON.parse(localStorage.getItem('notes'));
     }
     return notes;
@@ -28,11 +30,13 @@ class Storage {
   // This function removes note from Local Storage by ID
   static deleteNoteFromStorage(id) {
     const notes = Storage.currentNotes();
+    // delete note with coresponding ID
     notes.forEach((element, index) => {
       if (element.id == id) {
         notes.splice(index, 1);
       }
     });
+    // save changed notes varieble into local storage
     localStorage.setItem('notes', JSON.stringify(notes));
   }
 }
@@ -48,10 +52,15 @@ class UI {
     const div = document.createElement('div');
     div.classList.add('note', 'deleteNote');
     div.id = note.id;
-    div.innerHTML = `
-	<h2 class="subject">${note.heading}</h2>
-	<p>${note.note}</p>
-	`;
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    div.classList.add('note', 'deleteNote');
+    div.id = note.id;
+    h2.classList.add('subject');
+    h2.textContent = note.heading;
+    p.innerText = note.note;
+    div.appendChild(h2);
+    div.appendChild(p);
     document.querySelector('.note_section').appendChild(div);
   }
 
